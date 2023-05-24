@@ -1,0 +1,43 @@
+{
+  "name": "kdt5-m3",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.0.3",
+    "@radix-ui/react-checkbox": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.1",
+    "@types/node": "20.1.4",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "10.4.14",
+    "class-variance-authority": "^0.6.0",
+    "clsx": "^1.2.1",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.2",
+    "lucide-react": "^0.216.0",
+    "next": "13.4.2",
+    "next-themes": "^0.2.1",
+    "postcss": "8.4.23",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-query": "^3.39.3",
+    "react-sortablejs": "^6.1.4",
+    "sortablejs": "^1.15.0",
+    "tailwind-merge": "^1.12.0",
+    "tailwindcss": "3.3.2",
+    "tailwindcss-animate": "^1.0.5",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/sortablejs": "^1.15.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8"
+  }
+}
