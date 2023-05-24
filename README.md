@@ -111,5 +111,5 @@ const handleDeleteDone = () => {
 ```
 
 - server side data fetching, ISR, suspense기능 사용
-  - https://github.com/howooking/fastcampus-KDT5-M3/blob/d3de0084ccc9d77201f89a5d06be7ff08fe99cd8/src/api/requests.ts#LL1C1-L29C2
-  - https://github.com/howooking/fastcampus-KDT5-M3/blob/d3de0084ccc9d77201f89a5d06be7ff08fe99cd8/src/components/sidebar.tsx#LL34C1-L44C18
+  - https://github.com/howooking/fastcampus-KDT5-M3/blob/2fbc4327a2e28c35e9563e03d21be7dd6913a182/src/api/requests.ts#LL1C1-L29C2
+  - https://github.com/howooking/fastcampus-KDT5-M3/blob/2fbc4327a2e28c35e9563e03d21be7dd6913a182/src/components/sidebar.tsx#LL34C1-L45C1
