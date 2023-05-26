@@ -57,14 +57,14 @@
 - 다양한 상호작용
   - 모든 TODO, 완료되지 않은 TODO, 완료한 TODO의 갯수를 각각 알려줌
   - 새로운 TODO, 수정 TODO 입력값에 따라 글자수를 알려주며 에러메세지 및 client side validation을 제공
-  - 투투 성공 여부에 따라 삭제 메시지가 다름
-  - 완료된 투두가 없을 때는 모두삭제 버튼이 보이지 않음
-- TODO apikey를 환경변수에 저장
+  - TODO 성공 여부에 따라 삭제 메시지가 다름
+  - 완료된 TODO가 없을 때는 모두삭제 버튼이 보이지 않음
+- TODO apikey를 환경변수에 저장, Next route handler를 통해 api key를 숨김
   <br><br>
 
 ## 컴포넌트 구조
 
-<img src="https://github.com/KDT1-FE/KDT5-M3/blob/KDT5_LeeJungWoo/public/component-structure.png?raw=true"/>
+![component-structure](https://github.com/KDT1-FE/KDT5-M3/assets/87072568/676aca6b-c9b3-4353-bdb3-3f496ee05672)
 
 ## 고찰 및 느낀점
 
@@ -109,7 +109,3 @@ const handleDeleteDone = () => {
     onEnd={handleReorder}
   >
 ```
-
-- server side data fetching, ISR, suspense기능 사용
-  - https://github.com/howooking/fastcampus-KDT5-M3/blob/2fbc4327a2e28c35e9563e03d21be7dd6913a182/src/api/requests.ts#LL1C1-L29C2
-  - https://github.com/howooking/fastcampus-KDT5-M3/blob/2fbc4327a2e28c35e9563e03d21be7dd6913a182/src/components/sidebar.tsx#LL34C1-L45C1

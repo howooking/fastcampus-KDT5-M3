@@ -1,8 +1,8 @@
 // GET quote
 export async function fetchQuote() {
   // 명언 데이터크기가 너무 작아서 네트워크 속도를 slow 3g로 하여도 loading ui를 볼 수가 없습니다.
-  // react suspense 연습용 인위적인 2초 delay
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // react suspense 연습용 인위적인 1초 delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   try {
     const respons = await fetch(
       'https://api.qwer.pw/request/helpful_text?apikey=guest',
@@ -31,17 +31,7 @@ export async function fetchQuote() {
 // GET todos
 export async function getTodos() {
   try {
-    const res = await fetch(
-      'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
-      {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-          apikey: process.env.NEXT_PUBLIC_TODO_API_KEY as string,
-          username: process.env.NEXT_PUBLIC_TODO_USERNAME as string,
-        },
-      }
-    );
+    const res = await fetch('/api/todos');
     if (res.ok) {
       const json = await res.json();
       return json;
@@ -56,20 +46,12 @@ export async function getTodos() {
 // POST todo
 export async function postTodo(newTodo: string) {
   try {
-    const res = await fetch(
-      'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
-      {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          apikey: process.env.NEXT_PUBLIC_TODO_API_KEY as string,
-          username: process.env.NEXT_PUBLIC_TODO_USERNAME as string,
-        },
-        body: JSON.stringify({
-          title: newTodo,
-        }),
-      }
-    );
+    const res = await fetch('/api/todos', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: newTodo,
+      }),
+    });
     const json = await res.json();
     return json;
     // {
@@ -88,17 +70,9 @@ export async function postTodo(newTodo: string) {
 // DELETE todo
 export async function deleteTodo(todoId: string) {
   try {
-    const res = await fetch(
-      `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${todoId}`,
-      {
-        method: 'DELETE',
-        headers: {
-          'content-type': 'application/json',
-          apikey: process.env.NEXT_PUBLIC_TODO_API_KEY as string,
-          username: process.env.NEXT_PUBLIC_TODO_USERNAME as string,
-        },
-      }
-    );
+    const res = await fetch(`/api/todos/?id=${todoId}`, {
+      method: 'DELETE',
+    });
     const json = await res.json();
     return json;
     // type ResponseValue = true
@@ -110,21 +84,14 @@ export async function deleteTodo(todoId: string) {
 // PUT todo
 export async function putTodo(editTodo: Todo) {
   try {
-    const res = await fetch(
-      `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${editTodo.id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-          apikey: process.env.NEXT_PUBLIC_TODO_API_KEY as string,
-          username: process.env.NEXT_PUBLIC_TODO_USERNAME as string,
-        },
-        body: JSON.stringify({
-          title: editTodo.title,
-          done: editTodo.done,
-        }),
-      }
-    );
+    const res = await fetch('/api/todos', {
+      method: 'PUT',
+      body: JSON.stringify({
+        todoId: editTodo.id,
+        title: editTodo.title,
+        done: editTodo.done,
+      }),
+    });
     const json = await res.json();
     return json;
     // {
@@ -143,20 +110,12 @@ export async function putTodo(editTodo: Todo) {
 // PUT todo reorder
 export async function reorderTodo(todoIds: string[]) {
   try {
-    const res = await fetch(
-      'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/reorder',
-      {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-          apikey: process.env.NEXT_PUBLIC_TODO_API_KEY as string,
-          username: process.env.NEXT_PUBLIC_TODO_USERNAME as string,
-        },
-        body: JSON.stringify({
-          todoIds,
-        }),
-      }
-    );
+    const res = await fetch('/api/todos/reorder', {
+      method: 'PUT',
+      body: JSON.stringify({
+        todoIds,
+      }),
+    });
     const json = await res.json();
     return json;
     // type ResponseValue = true
